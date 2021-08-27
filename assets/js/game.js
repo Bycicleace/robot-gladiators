@@ -130,7 +130,7 @@ var endGame = function() {
 var shop = function() {
     // ask player what they'd like to do
     var shopOptionPrompt = window.prompt(
-        "Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter one: 'REFILL', 'UPGRADE', or 'LEAVE' to make a choice."
+        "Balance: " + playerMoney + "\nWould you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter one: 'REFILL', 'UPGRADE', or 'LEAVE' to make a choice."
     );
     // use switch to carry out action
     switch (shopOptionPrompt) {
@@ -145,7 +145,9 @@ var shop = function() {
             } else {
                 window.alert("You don't have enough money!");
             }
-
+            
+            // Return to shop to give player additional options
+            shop();
             break;
         case "UPGRADE": // new case
         case "upgrade":
@@ -159,6 +161,8 @@ var shop = function() {
                 window.alert("You don't have enough money!");
             }
 
+            // Return to shop to give player additional options
+            shop();
             break;
         case "LEAVE": // new case
         case "leave":
